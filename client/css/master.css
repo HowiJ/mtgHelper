@@ -1,0 +1,50 @@
+* {
+    cursor: default;
+}
+body {
+    overflow: hidden;
+}
+.jumbotron {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+div.possibleCard {
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid;
+    border-color: gray;
+    height: 50px;
+    overflow-y: scroll;
+    margin: 3px;
+    border-radius: 5px;
+}
+div.possibleCard:hover {
+    background: gray;
+    color: white;
+    border-color: gray;
+}
+input {
+    cursor: text;
+}
+.rulings {
+    cursor: pointer;
+}
+div.currCard {
+    overflow-y: scroll;
+}
+div.menu.container {
+    border-top: 1px solid gray;
+    padding-top: 20px;
+    background: white;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}
+div.row.possibleCards {
+    border-top: 1px solid gray;
+    padding-top: 20px;
+    overflow-y: scroll;
+    height: 100px;
+}

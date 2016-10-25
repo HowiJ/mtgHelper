@@ -1,0 +1,84 @@
+<div ng-show="loading" class="jumbotron"><h1>Loading...</h1><p>This may take a while depending on internet connection...</p></div>
+<div ng-hide="loading">
+    <div class="container currCard">
+        <table class="table">
+            <tbody>
+                <!-- Name -->
+                <tr>
+                    <th scope="row" class="col-md-2">Name</th>
+                    <td ng-bind="currentCard.name"></td>
+                </tr>
+                <!-- Cost -->
+                <tr>
+                    <th scope="row" class="col-md-2">Cost</th>
+                    <td ng-bind="currentCard.manaCost"></td>
+                </tr>
+                <!-- Type -->
+                <tr>
+                    <th scope="row" class="col-md-2">Type</th>
+                    <td ng-bind="currentCard.type"></td>
+                </tr>
+                <!-- Toughness & Power -->
+                <tr ng-if="currentCard.power">
+                    <th scope="row" class="col-md-2">Power/Toughness</th>
+                    <td ng-bind="currentCard.power+' / '+currentCard.toughness" ng-if="currentCard.power"></td>
+                </tr>
+                <!-- Loyalty -->
+                <tr ng-if="currentCard.loyalty">
+                    <th scope="row" class="col-md-2">Loyalty</th>
+                    <td ng-bind="currentCard.loyalty"></td>
+                </tr>
+                <!-- Text of Card -->
+                <tr>
+                    <th scope="row" class="col-md-2">Text</th>
+                    <td ng-bind="currentCard.text"></td>
+                </tr>
+                <!-- Legalities -->
+                <tr ng-if="currentCard.legal">
+                    <th scope="row">Legal</th>
+                    <td ng-bind="currentCard.legal"></td>
+                </tr>
+                <tr ng-if="currentCard.banned">
+                    <th scope="row">Illegal</th>
+                    <td ng-bind="currentCard.banned"></td>
+                </tr>
+                <tr ng-if="currentCard.restricted">
+                    <th scope="row">Restricted</th>
+                    <td ng-bind="currentCard.restricted"></td>
+                </tr>
+                <!-- Rulings -->
+                <tr ng-show="currentCard.rulings">
+                    <th scope="row" ng-click="rulings=!rulings" ng-hide="rulings" class="rulings">Rulings +</th>
+                    <th scope="row" ng-click="rulings=!rulings" ng-show="rulings" class="rulings">Rulings -</th>
+                </tr>
+                <tr ng-repeat="(key, value) in currentCard.rulings" ng-show="rulings">
+                    <th scope="row" class="col-md-2"></th>
+                    <td ng-bind="value.date+'\n'+value.text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container menu">
+        <div class="row">
+            <form ng-submit="addCard()">
+                <div class="form-group">
+                    <label for="new_card_input">Card Name</label>
+                    <input
+                        ng-model="new_card" ng-change="searchCard()"
+                        id="new_card_input" class="form-control"
+                        ng-keydown="updateIndex()" aria-describedby="newCardHelp"
+                        placeholder="Card Name" autocomplete="off">
+                    <small id="newCardHelp" class="form-text text-muted">Type a card name, and then select a card. 'Enter' to select the first one. (Not case sensitive)</small>
+                </div>
+            </form>
+        </div>
+        <div class="row possibleCards">
+            <div
+                ng-repeat="(index, card) in possibleCard track by $index"
+                class="col-md-2 possibleCard" id="card_{{index}}"
+                ng-click="checkCard(card)">
+                {{card}}
+            </div>
+        </div>
+    </div>
+</div>

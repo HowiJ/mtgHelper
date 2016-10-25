@@ -1,0 +1,24 @@
+{
+  "name": "mtg",
+  "version": "1.0.0",
+  "description": "MTG Helper",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mtgsdk": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "MTG",
+    "Magic",
+    "the",
+    "Gathering"
+  ],
+  "author": "Howard Jiang <me@howardjiang.com> (http://howardjiang.com)",
+  "license": "ISC"
+}

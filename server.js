@@ -1,0 +1,33 @@
+//////////////////////////////////////////////////////////
+//                      Requires                        //
+//////////////////////////////////////////////////////////
+const bodyParser      = require("body-parser");
+const express         = require("express");
+const mtg             = require('mtgsdk');
+const path            = require("path");
+const port            = require(path.join(__dirname,"./server/config/settings.js")).port;
+const http            = require('http');
+const app             = express();
+
+////////////////////////////////////////////////////////////
+//             App.use (Body Parser, Static)              //
+////////////////////////////////////////////////////////////
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "./client")));
+
+////////////////////////////////////////////////////////////
+//                        Mongoose                        //
+////////////////////////////////////////////////////////////
+// require('./server/config/mongoose.js');
+
+////////////////////////////////////////////////////////////
+//                         Routes                         //
+////////////////////////////////////////////////////////////
+require('./server/config/routes.js')(app)
+
+////////////////////////////////////////////////////////////
+//                     Listen to Port                     //
+////////////////////////////////////////////////////////////
+app.listen(port, function() {
+    console.log("Magic the Gathering Helper! ("+port+")");
+})
