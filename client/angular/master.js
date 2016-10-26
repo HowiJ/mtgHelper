@@ -47,18 +47,6 @@ Node.prototype.findWords = function (arr) {
         this.children[i].findWords(arr);
     }
 };
-TrieSet.prototype.wordsStartingWith = function(char) {
-    var arr = [];
-
-    if (this.root.children[char] && this.root.children[char].toLowerCase()) {
-        this.root.children[char].toLowerCase().findWords(arr);
-    }
-    if (this.root.children[char] && this.root.children[char].toUpperCase()) {
-        this.root.children[char].toUpperCase().findWords(arr);
-    }
-
-    return arr;
-}
 
 Node.prototype.wordsStartingWithStr = function (str, arr) {
     if (str.length < 1) {
@@ -151,7 +139,10 @@ app.factory('cardsFactory', function($http) {
 })
 
 app.controller('mtgController', function($scope, cardsFactory) {
-    $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);
+    $('.currCard').height(parseInt($('.menu').offset().top));
+    console.log(window.innerHeight-parseInt($('.menu').offset().top));
+    console.log(parseInt($('.menu').offset().top));
+    console.log(parseInt($(window).height())-parseInt($('.menu').height())-20);
     $(window).resize(function() {
         $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);
     })
