@@ -1,5 +1,6 @@
 * {
     cursor: default;
+    overflow: hidden;
 }
 body {
     overflow: hidden;
