@@ -1,10 +1,4 @@
-// mongoose
-// var mongoose = require('mongoose');
-//Retreive the User mongoose object
-
-//Model Call
-// var Model = mongoose.model('Model');
-
+const mtg = require('mtgsdk');
 var cards = require('../lib/cardsx.json');
 
 //Module Export
@@ -21,10 +15,9 @@ module.exports = (function() {
         //     res.json(cards['Elesh Norn, Grand Cenobite']);
         // },
         retrieveOne: function(req, res) {
-            if (cards.hasOwnProperty(req.params.name)) {
-
-                res.json(cards[req.params.name]);
-            }
+            mtg.card.all({name: req.params.name}).on('data', function(card) {
+                res.json(card);
+            })
         }
     }
 })();
