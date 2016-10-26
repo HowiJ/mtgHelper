@@ -131,7 +131,7 @@ app.factory('cardsFactory', function($http) {
 app.controller('mtgController', function($scope, cardsFactory) {
     setTimeout(function () {
         $('.currCard').height(parseInt($('.menu').offset().top));
-    }, 0);
+    }, 50);
     $(window).resize(function() {
         $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);
     })
