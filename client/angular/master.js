@@ -1,3 +1,8 @@
+////////////////////////////////////////////////////////////
+//                        Angular                         //
+////////////////////////////////////////////////////////////
+var app = angular.module('app', ['ngRoute']);
+
 var TrieSet = function() {
     this.root = new Node();
 }
@@ -82,11 +87,6 @@ TrieSet.prototype.wordsStartingWithStr = function(str) {
 
     return arr;
 }
-////////////////////////////////////////////////////////////
-//                        Angular                         //
-////////////////////////////////////////////////////////////
-var app = angular.module('app', ['ngRoute']);
-
 
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
