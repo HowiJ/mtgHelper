@@ -164,7 +164,7 @@ app.controller('mtgController', function($scope, cardsFactory) {
         $scope.currIndex = 0;
         var str = $scope.new_card;
         possible = $scope.cardTrie.wordsStartingWithStr(str);
-        if (possible.length <= 50) {
+        if (possible.length <= 100) {
             $scope.possibleCard = possible;
         }
     }
