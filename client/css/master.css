@@ -33,12 +33,13 @@ input {
 }
 div.currCard {
     overflow-y: scroll;
+    height: 100%;
 }
 div.menu.container {
     border-top: 1px solid gray;
     padding-top: 20px;
     background: white;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0px;
     left: 0;
     right: 0;
@@ -46,6 +47,6 @@ div.menu.container {
 div.row.possibleCards {
     border-top: 1px solid gray;
     padding-top: 20px;
-    overflow-y: auto;
-    height: 100px;
+    overflow-y: scroll;
+    height: 100vw;
 }
