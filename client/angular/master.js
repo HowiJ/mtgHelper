@@ -57,9 +57,6 @@ Node.prototype.wordsStartingWithStr = function (str, arr) {
         }
         else if (this.children[str[0].toUpperCase()]) {
             this.children[str[0].toUpperCase()].wordsStartingWithStr(str.substr(1), arr);
-        } else {
-            this.children[str[0].toLowerCase()].wordsStartingWithStr(str.substr(1), arr);
-            this.children[str[0].toUpperCase()].wordsStartingWithStr(str.substr(1), arr);
         }
     }
 };
@@ -69,7 +66,7 @@ TrieSet.prototype.wordsStartingWithStr = function(str) {
     if (str && this.root.children[str[0].toLowerCase()]) {
         this.root.children[str[0].toLowerCase()].wordsStartingWithStr(str.substr(1), arr);
     }
-    if (str && this.root.children[str[0].toUpperCase()]) {
+    else if (str && this.root.children[str[0].toUpperCase()]) {
         this.root.children[str[0].toUpperCase()].wordsStartingWithStr(str.substr(1), arr);
     }
 
@@ -129,12 +126,12 @@ app.factory('cardsFactory', function($http) {
 })
 
 app.controller('mtgController', function($scope, cardsFactory) {
-    setTimeout(function () {
-        $('.currCard').height(parseInt($('.menu').offset().top));
-    }, 50);
-    $(window).resize(function() {
-        $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);
-    })
+    // setTimeout(function () {
+    //     $('.currCard').height(parseInt($('.menu').offset().top));
+    // }, 100);
+    // $(window).resize(function() {
+    //     $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);
+    // })
     $scope.cardTrie = new TrieSet();
     $scope.new_card = "";
     $scope.loading = true;

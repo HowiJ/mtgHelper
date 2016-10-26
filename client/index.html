@@ -101,8 +101,8 @@
                         <div
                             ng-repeat="(index, card) in possibleCard track by $index"
                             class="col-md-2 possibleCard" id="card_{{index}}"
-                            ng-click="checkCard(card)">
-                            {{card}}
+                            ng-click="checkCard(card)"
+                            ng-bind="card">
                         </div>
                     </div>
                 </div>
