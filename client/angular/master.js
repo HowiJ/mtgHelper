@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //                        Angular                         //
 ////////////////////////////////////////////////////////////
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', []);
 
 var TrieSet = function() {
     this.root = new Node();
@@ -76,17 +76,7 @@ TrieSet.prototype.wordsStartingWithStr = function(str) {
     return arr;
 }
 
-app.config(function($routeProvider, $locationProvider) {
-    $routeProvider
-    .when('/', {
-        templateUrl: '../partials/dashboard.html',
-        controller : 'mtgController'
-    })
-    .otherwise({
-        templateUrl: 'partials/dashboard.html',
-        controller : 'mtgController'
-    })
-
+app.config(function( $locationProvider) {
     $locationProvider.html5Mode(true);
 })
 
