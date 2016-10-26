@@ -129,10 +129,9 @@ app.factory('cardsFactory', function($http) {
 })
 
 app.controller('mtgController', function($scope, cardsFactory) {
-    $('.currCard').height(parseInt($('.menu').offset().top));
-    console.log(window.innerHeight-parseInt($('.menu').offset().top));
-    console.log(parseInt($('.menu').offset().top));
-    console.log(parseInt($(window).height())-parseInt($('.menu').height())-20);
+    setTimeout(function () {
+        $('.currCard').height(parseInt($('.menu').offset().top));
+    }, 0);
     $(window).resize(function() {
         $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);
     })
