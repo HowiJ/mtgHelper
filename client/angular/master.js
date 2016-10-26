@@ -128,7 +128,10 @@ app.factory('cardsFactory', function($http) {
 app.controller('mtgController', function($scope, cardsFactory) {
     setTimeout(function () {
         // $('.currCard').height(parseInt($('.menu').offset().top));
-        $('.possibleCards').height(window.innerHeight-parseInt($("#cardForm").height())-40);
+        $('.possibleCards').height((window.innerHeight-101)-parseInt($("#cardForm").height()));
+        console.log(window.innerHeight);
+        console.log($('#cardForm').height());
+        console.log((window.innerHeight-101)-parseInt($("#cardForm").height()));
     }, 100);
     // $(window).resize(function() {
     //     // $('.currCard').height(parseInt($(window).height())-parseInt($('.menu').height())-20);

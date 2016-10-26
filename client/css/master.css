@@ -48,5 +48,5 @@ div.row.possibleCards {
     border-top: 1px solid gray;
     padding-top: 20px;
     overflow-y: scroll;
-    height: 100vw;
+    /*height: 100vw;*/
 }
