@@ -50,59 +50,70 @@
                     </div>
                 </div>
                 <div class="currCard col-md-8">
-                    <h3 id="cardName" ng-bind="currentCard.name"></h3>
-                    <img src="{{currentCard.imageUrl}}" alt="{{currentCard.name}}">
-                    <table class="table">
-                        <tbody>
-                            <!-- Cost -->
-                            <tr>
-                                <th scope="row" class="col-md-2">Cost</th>
-                                <td ng-bind="currentCard.manaCost"></td>
-                            </tr>
-                            <!-- Type -->
-                            <tr>
-                                <th scope="row" class="col-md-2">Type</th>
-                                <td ng-bind="currentCard.type"></td>
-                            </tr>
-                            <!-- Toughness & Power -->
-                            <tr ng-if="currentCard.power">
-                                <th scope="row" class="col-md-2">Power/Toughness</th>
-                                <td ng-bind="currentCard.power+' / '+currentCard.toughness" ng-if="currentCard.power"></td>
-                            </tr>
-                            <!-- Loyalty -->
-                            <tr ng-if="currentCard.loyalty">
-                                <th scope="row" class="col-md-2">Loyalty</th>
-                                <td ng-bind="currentCard.loyalty"></td>
-                            </tr>
-                            <!-- Text of Card -->
-                            <tr>
-                                <th scope="row" class="col-md-2">Text</th>
-                                <td ng-bind="currentCard.text"></td>
-                            </tr>
-                            <!-- Legalities -->
-                            <tr ng-if="currentCard.legal">
-                                <th scope="row">Legal</th>
-                                <td ng-bind="currentCard.legal"></td>
-                            </tr>
-                            <tr ng-if="currentCard.banned">
-                                <th scope="row">Illegal</th>
-                                <td ng-bind="currentCard.banned"></td>
-                            </tr>
-                            <tr ng-if="currentCard.restricted">
-                                <th scope="row">Restricted</th>
-                                <td ng-bind="currentCard.restricted"></td>
-                            </tr>
-                            <!-- Rulings -->
-                            <tr ng-show="currentCard.rulings">
-                                <th scope="row" ng-click="rulings=!rulings" ng-hide="rulings" class="rulings">Rulings +</th>
-                                <th scope="row" ng-click="rulings=!rulings" ng-show="rulings" class="rulings">Rulings -</th>
-                            </tr>
-                            <tr ng-repeat="(key, value) in currentCard.rulings" ng-show="rulings">
-                                <th scope="row" class="col-md-2"></th>
-                                <td ng-bind="value.date+'\n'+value.text"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 id="cardName" ng-bind="currentCard.name"></h3>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{{currentCard.imageUrl}}" alt="{{currentCard.name}}" ng-if="currentCard.imageUrl" style="width: 15em;">
+                            <img src="/img/noimg.png" alt="No Image was found" ng-if="!currentCard.imageUrl&&currentCard" style="width: 15em;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <tbody>
+                                    <!-- Cost -->
+                                    <tr>
+                                        <th scope="row" class="col-md-2">Cost</th>
+                                        <td ng-bind="currentCard.manaCost"></td>
+                                    </tr>
+                                    <!-- Type -->
+                                    <tr>
+                                        <th scope="row" class="col-md-2">Type</th>
+                                        <td ng-bind="currentCard.type"></td>
+                                    </tr>
+                                    <!-- Toughness & Power -->
+                                    <tr ng-if="currentCard.power">
+                                        <th scope="row" class="col-md-2">Power/Toughness</th>
+                                        <td ng-bind="currentCard.power+' / '+currentCard.toughness" ng-if="currentCard.power"></td>
+                                    </tr>
+                                    <!-- Loyalty -->
+                                    <tr ng-if="currentCard.loyalty">
+                                        <th scope="row" class="col-md-2">Loyalty</th>
+                                        <td ng-bind="currentCard.loyalty"></td>
+                                    </tr>
+                                    <!-- Text of Card -->
+                                    <tr>
+                                        <th scope="row" class="col-md-2">Text</th>
+                                        <td ng-bind="currentCard.text"></td>
+                                    </tr>
+                                    <!-- Legalities -->
+                                    <tr ng-if="currentCard.legal">
+                                        <th scope="row">Legal</th>
+                                        <td ng-bind="currentCard.legal"></td>
+                                    </tr>
+                                    <tr ng-if="currentCard.banned">
+                                        <th scope="row">Illegal</th>
+                                        <td ng-bind="currentCard.banned"></td>
+                                    </tr>
+                                    <tr ng-if="currentCard.restricted">
+                                        <th scope="row">Restricted</th>
+                                        <td ng-bind="currentCard.restricted"></td>
+                                    </tr>
+                                    <!-- Rulings -->
+                                    <tr ng-show="currentCard.rulings">
+                                        <th scope="row" ng-click="rulings=!rulings" ng-hide="rulings" class="rulings">Rulings +</th>
+                                        <th scope="row" ng-click="rulings=!rulings" ng-show="rulings" class="rulings">Rulings -</th>
+                                    </tr>
+                                    <tr ng-repeat="(key, value) in currentCard.rulings" ng-show="rulings">
+                                        <th scope="row" class="col-md-2"></th>
+                                        <td ng-bind="value.date+'\n'+value.text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 

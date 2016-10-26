@@ -16,7 +16,11 @@ module.exports = (function() {
         // },
         retrieveOne: function(req, res) {
             mtg.card.all({name: req.params.name}).on('data', function(card) {
-                res.json(card);
+                if (card.name == req.params.name) {
+                    res.json(card);
+                } else {
+                    res.json(cards[req.params.name]);
+                }
             })
         }
     }
